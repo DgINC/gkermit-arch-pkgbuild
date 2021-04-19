@@ -1,6 +1,6 @@
 diff -Naur gkermit-src/gcmdline.c gkermit-tmp/gcmdline.c
 --- gkermit-src/gcmdline.c	1999-12-26 23:05:38.000000000 +0300
-+++ gkermit-tmp/gcmdline.c	2021-04-19 22:20:36.447261336 +0300
++++ gkermit-tmp/gcmdline.c	2021-04-19 22:40:40.460416860 +0300
 @@ -29,6 +29,8 @@
  */
  
@@ -24,7 +24,7 @@ diff -Naur gkermit-src/gcmdline.c gkermit-tmp/gcmdline.c
  	    quiet = 1;
  	    break;
 +	    
-+	case 'v':			/* Verbose */
++	  case 'v':			/* Verbose */
 +		progress = 1;		/* (lame) progress indicator */
 +		quiet = 0;			/* Turn messages back on */
 +		break;
@@ -32,6 +32,14 @@ diff -Naur gkermit-src/gcmdline.c gkermit-tmp/gcmdline.c
  
  	  case 'K':			/* Keep incompletely received files */
  	    keep = 1;
+@@ -350,6 +358,7 @@
+     fprintf(stderr," -T      Text mode transfer\n");
+     fprintf(stderr," -P      Path/filename conversion disabled\n");
+     fprintf(stderr," -w      Write over existing files with same name\n");
++    fprintf(stderr," -v      Verbose (lame) progress indicator\n");
+     fprintf(stderr," -K      Keep incompletely received files\n");
+     fprintf(stderr," -p x    Parity: x = o[dd],e[ven],m[ark],s[pace],n[one]\n")
+       ;
 diff -Naur gkermit-src/gkermit.c gkermit-tmp/gkermit.c
 --- gkermit-src/gkermit.c	1999-12-27 05:11:19.000000000 +0300
 +++ gkermit-tmp/gkermit.c	2021-04-19 22:22:29.516963926 +0300
